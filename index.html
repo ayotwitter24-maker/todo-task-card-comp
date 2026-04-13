@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo Task Card</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <article class="todo-card" data-testid="test-todo-card" aria-labelledby="todo-card-title">
+        <header class="todo-card__header">
+          <div class="todo-card__heading">
+            <p class="todo-card__eyebrow">Task Snapshot</p>
+            <h3 id="todo-card-title" data-testid="test-todo-title">Finish Todo Card Task</h3>
+          </div>
+
+          <label class="todo-card__toggle">
+            <span class="sr-only">Mark Finish Todo Card Task as complete</span>
+            <input
+              type="checkbox"
+              data-testid="test-todo-complete-toggle"
+              aria-label="Mark Finish Todo Card Task as complete"
+            />
+          </label>
+        </header>
+
+        <p class="todo-card__description" data-testid="test-todo-description">
+          Build a testable and accessible todo component
+        </p>
+
+        <section class="todo-card__details" aria-label="Task details">
+          <div class="todo-card__detail">
+            <span class="todo-card__detail-label">Priority</span>
+            <span class="priority-badge" data-testid="test-todo-priority">High</span>
+          </div>
+
+          <div class="todo-card__detail">
+            <span class="todo-card__detail-label">Status</span>
+            <span class="status-badge" data-testid="test-todo-status">Pending</span>
+          </div>
+
+          <div class="todo-card__detail">
+            <span class="todo-card__detail-label">Due date</span>
+            <time data-testid="test-todo-due-date" datetime="2026-04-16T18:00:00">
+              April 16, 2026 at 6:00 PM
+            </time>
+          </div>
+
+          <div class="todo-card__detail">
+            <span class="todo-card__detail-label">Time remaining</span>
+            <time
+              data-testid="test-todo-time-remaining"
+              datetime="2026-04-16T18:00:00"
+              aria-live="polite"
+            >
+              Loading...
+            </time>
+          </div>
+        </section>
+
+        <section class="todo-card__tags-section" aria-label="Task tags">
+          <span class="todo-card__detail-label">Tags</span>
+          <ul class="todo-tags" role="list" data-testid="test-todo-tags">
+            <li>Work</li>
+            <li>Urgent</li>
+            <li>Design</li>
+          </ul>
+        </section>
+
+        <div class="todo-card__actions">
+          <button type="button" data-testid="test-todo-edit-button" aria-label="Edit todo task">
+            Edit
+          </button>
+          <button type="button" data-testid="test-todo-delete-button" aria-label="Delete todo task">
+            Delete
+          </button>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
