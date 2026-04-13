@@ -1,0 +1,243 @@
+:root {
+  --page-background: linear-gradient(145deg, #f2ece2 0%, #dcebe7 100%);
+  --card-background: #fffdfa;
+  --card-border: #d6dfdc;
+  --text-primary: #1f2a37;
+  --text-secondary: #50606d;
+  --accent: #1a5d50;
+  --accent-soft: #d8eee8;
+  --warning: #8a4b09;
+  --warning-soft: #fde8cf;
+  --danger: #9f2d2d;
+  --danger-soft: #fee1e1;
+  --shadow: 0 18px 40px rgba(31, 42, 55, 0.14);
+  --focus-ring: #0f766e;
+  --border-radius: 22px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Aptos, "Segoe UI", "Trebuchet MS", sans-serif;
+  background: var(--page-background);
+  color: var(--text-primary);
+}
+
+button,
+input,
+time,
+span,
+p,
+h3,
+li {
+  font: inherit;
+}
+
+.page-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+}
+
+.todo-card {
+  width: min(100%, 450px);
+  background: var(--card-background);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+}
+
+.todo-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.todo-card__heading {
+  min-width: 0;
+}
+
+.todo-card__eyebrow {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.todo-card h3 {
+  margin: 0;
+  font-size: clamp(1.35rem, 4vw, 1.8rem);
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.todo-card__description {
+  margin: 18px 0 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.todo-card__toggle {
+  flex-shrink: 0;
+}
+
+.todo-card__toggle input {
+  width: 1.35rem;
+  height: 1.35rem;
+  margin: 0;
+  cursor: pointer;
+  accent-color: var(--accent);
+}
+
+.todo-card__details {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.todo-card__detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(216, 238, 232, 0.34);
+}
+
+.todo-card__detail-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.todo-card__detail time,
+.todo-card__detail span:last-child {
+  text-align: right;
+}
+
+.priority-badge,
+.status-badge,
+.todo-tags li {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.priority-badge {
+  padding: 0.42rem 0.8rem;
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.status-badge {
+  padding: 0.42rem 0.8rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.status-badge.is-done {
+  background: #d7f2d3;
+  color: #21653f;
+}
+
+.todo-card__tags-section {
+  margin-top: 22px;
+}
+
+.todo-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin: 12px 0 0;
+}
+
+.todo-tags li {
+  padding: 0.42rem 0.78rem;
+  background: #eef1f4;
+  color: #31414f;
+}
+
+.todo-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.todo-card__actions button {
+  flex: 1 1 160px;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.todo-card__actions button:hover {
+  transform: translateY(-1px);
+}
+
+.todo-card__actions button:first-child {
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(26, 93, 80, 0.18);
+}
+
+.todo-card__actions button:last-child {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.todo-card__actions button:last-child:hover {
+  background: #ffd4d4;
+}
+
+.todo-card.is-complete [data-testid="test-todo-title"] {
+  text-decoration: line-through;
+  color: #6b7280;
+}
+
+.todo-card :focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (min-width: 640px) {
+  .page-shell {
+    padding: 32px;
+  }
+
+  .todo-card {
+    padding: 28px;
+  }
+}
